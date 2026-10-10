@@ -1,0 +1,211 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.question-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.question-header {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.question-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(59, 130, 246, 0.15);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.question-title-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.expand-icon {
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+.question-card.expanded .expand-icon {
+  transform: rotate(180deg);
+  color: var(--primary-color);
+}
+
+.question-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+  background-color: var(--surface-color);
+}
+
+.question-card.expanded .question-content {
+  max-height: 500px; /* Arbitrary large height */
+  border-top: 1px solid var(--border-color);
+}
+
+.solution-box {
+  padding: 1.5rem;
+}
+
+.solution-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.solution-text {
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 1.05rem;
+  background-color: rgba(124, 58, 237, 0.05);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-color);
+}
+
+.solution-text p {
+  margin-bottom: 0.75rem;
+}
+
+.solution-text p:last-child {
+  margin-bottom: 0;
+}
+
+.solution-text ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.solution-text li {
+  margin-bottom: 0.5rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #5b21b6;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.solution-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.footer strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .expand-icon {
+    align-self: flex-end;
+    margin-top: -3rem;
+  }
+}
